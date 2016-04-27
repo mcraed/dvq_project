@@ -10,3 +10,7 @@ use Rack::Flash, :sweep => true
 
 set :database, 'sqlite3:ormpractice.sqlite3'
 set :sessions, true
+
+get '/' do
+	erb :home
+end

@@ -15,15 +15,36 @@
 
 <div id='sign-up'>
 
-	<form method="POST" action="/sign-up">   
+	<form method="POST" action="/sign-up">  
 
-		<label for="name">Name</label>   
-		<input type="text" name="[signup]name"> 
+		<label for="fname">First Name</label>
+		<input type="text" name="[signup]fname">
+
+		<label for="lname">Last Name</label>   
+		<input type="text" name="[signup]lname"> 
+
+		<label for="email">Email</label>
+		<input type="email" name="[signup]email">
+
+		<label for="username">Username</label>
+		<input type="text" name="[signup]username">
 
 		<label for="password">Password</label>   
-		<input name="[signup]password"></input>		   
+		<input type="text" name="[signup]password"></input>		   
 		
 		<input type="submit"> 	
+	</form>
+
+</div>
+
+<div id='create-post'>
+
+	<form method="POST" action="/create-post">
+
+		<label for="text">New Post</label>
+		<input type="text" name="[post]text">
+
+		<input type="submit">
 	</form>
 
 </div>

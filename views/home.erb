@@ -1,13 +1,18 @@
 
+<!-- add edit account/ delete account form -->
+
 
 
 <div id='sign-in'>
 
-	<form method="POST" action="/sign-in">
+	<form method="POST" action="/sign_in">
+
 	  <label for="username">Username</label>
 	  <input type="text" name="username">
+
 	  <label for="password">Password</label>
 	  <input type="password" name="password">
+
 	  <input type="submit">
 	</form>
 
@@ -15,37 +20,36 @@
 
 <div id='sign-up'>
 
-	<form method="POST" action="/sign-up">  
+	<form method="POST" action="/signup">  
 
 		<label for="fname">First Name</label>
-		<input type="text" name="[signup]fname">
+		<input type="text" name="fname">
 
 		<label for="lname">Last Name</label>   
-		<input type="text" name="[signup]lname"> 
+		<input type="text" name="lname"> 
 
 		<label for="email">Email</label>
-		<input type="email" name="[signup]email">
+		<input type="email" name="email">
 
 		<label for="username">Username</label>
-		<input type="text" name="[signup]username">
+		<input type="text" name="username">
 
 		<label for="password">Password</label>   
-		<input type="text" name="[signup]password"></input>		   
+		<input type="text" name="password"></input>		   
 		
 		<input type="submit"> 	
 	</form>
 
 </div>
 
-<div id='create-post'>
+<!-- ============================================
 
-	<form method="POST" action="/create-post">
+<div id="delete-post">
 
-		<label for="text">New Post</label>
-		<input type="text" name="[post]text">
-
-		<input type="submit">
+	<form method="POST" action="/delete-post">
+		<input type="hidden" name="_method" value="DELETE">
+		<input type="submit"  value="Delete">
 	</form>
 
-</div>
+</div> -->
 

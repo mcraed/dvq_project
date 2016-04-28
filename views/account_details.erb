@@ -1,0 +1,19 @@
+<h1>My account details</h1>
+
+
+
+<form method="post" action="/account_details">
+
+	<label for='fname'>First Name:</label>
+	<input type='text' name='up-fname' value=<%= @user.fname %> >
+	<label for='lname'>Last Name:</label>
+	<input type="text" name="up_lname" value=<%= @user.lname %> >
+	<label for='email'>email: <%= @user.email %></label>
+	<input type='button' name='up_email' value='Update Email'>
+	<label for='username'>Username:</label>
+	<input type='text' name='up_username' value=<%= @user.username %> >
+	<label for='password'>password:</label>
+	<input type='button' name='up_pass' value='Change Password'>
+
+	<input type='submit' value='Submit Changes'>
+</form>

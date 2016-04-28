@@ -10,6 +10,12 @@ use Rack::Flash, :sweep => true
 configure(:development){ set :database, 'sqlite3:ormpractice.sqlite3' }
 set :sessions, true
 
+def current_user
+  if session[:user_id]
+    @current_user = User.find(session[:user_id])
+  end
+end
+
 get '/' do
 	erb :home
 end
@@ -20,7 +26,7 @@ end
 
 post '/create_post' do
 	if params[:newpost] != " "
-		Post.create(user_id:  body: params[:newpost])
+		Post.create(user_id: session[:user_id],body: params[:newpost])
 	else
 		redirect '/create_post'
 	end

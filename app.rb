@@ -19,20 +19,25 @@ end
 get '/' do
 	erb :home
 end
-
+  # trying to print out the newsfeed 
 get '/feed' do
-  @user = current_user
-  # @post = 
 
+  @user = current_user
+  @posts=Post.last(10)
 	erb :feed
 end
 
-get '/create_post' do
-  @user = current_user
 
+get '/create_post' do
+# directs to creating post form 
 	erb :create_post
 end
 
+get '/feed'  do 
+  last[10]
+erb :feed 
+end 
+  # donvan said put equal signs 
 get '/account_details' do
   @user = current_user
   erb :account_details
@@ -58,18 +63,15 @@ post '/create_post' do
   end
 end
 
-post '/sign_in' do
-
+post '/signin' do
   @user = User.where(username: params[:username]).first
 
   if @user && @user.password == params[:password]
     session[:user_id] = @user.id
     flash[:notice] = "You've been signed in successfully."
-  
-    redirect "/feed"
+  	redirect "/feed"
   else
     flash[:alert] = "There was a problem signing you in."
-
     redirect "/"
   end
 end

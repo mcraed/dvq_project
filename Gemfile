@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-ruby '2.3.0'
+ruby '2.1.2'
 
 gem 'sinatra-activerecord'
 
@@ -13,6 +13,6 @@ group :development do
 	gem 'sqlite3'
 end
 
-group :production do
-	gem 'pg'
-end
+# group :production do
+# 	gem 'pg'
+# end

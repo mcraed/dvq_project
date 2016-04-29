@@ -8,6 +8,10 @@
 </head>
 <body>
 
+ <!-- nav bar form (sign out button) -->
+  <form method='post' action='/signout'>
+    <input type='submit' name='signout' value='Sign Out'>
+  </form>
 
 <% if flash[:notice] %>
     <div class="flash notice">

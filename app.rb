@@ -21,42 +21,52 @@ get '/' do
 end
 
 get '/feed' do
+  @user = current_user
+  # @post = 
+
 	erb :feed
 end
 
 get '/create_post' do
-  @post = 
+  @user = current_user
 
 	erb :create_post
 end
 
 get '/account_details' do
-  @user = User.find(session[:user_id])
+  @user = current_user
   erb :account_details
 end
 
-post '/create_post' do
-  # @user = User.find(session[:user_id])
-  puts @user.inspect
-
-	if params[:newpost] != " "
-		@post = Post.new(user_id: session[:user_id], body: params[:newpost])
-
-    redirect '/feed'
-	else
-		redirect '/create_post'
-	end
+get '/delete_acct' do
+  @user = current_user  
+  @user.destroy
+  session.clear
+  flash[:notice] = "Account Deleted"
+  redirect '/'
 end
 
-post '/signin' do
+post '/create_post' do
+  @user = current_user
+  puts current_user.id
+  if params[:newpost] != " "
+    @post = Post.create(user_id: @user.id, body: params[:newpost])
+
+    redirect '/feed'
+  else
+    redirect '/create_post'
+  end
+end
+
+post '/sign_in' do
 
   @user = User.where(username: params[:username]).first
 
-  if @user.password == params[:password]
+  if @user && @user.password == params[:password]
     session[:user_id] = @user.id
     flash[:notice] = "You've been signed in successfully."
   
-  	redirect "/feed"
+    redirect "/feed"
   else
     flash[:alert] = "There was a problem signing you in."
 
@@ -68,7 +78,8 @@ post '/signup' do
   #check for basic empty fields
   if params[:fname] != "" && params[:lname] != "" && params[:email] != "" && params[:username] != "" && params[:password] != "" 
     #create the new user and insert into database
-    @user = User.new(fname: params[:fname], lname: params[:lname], email: params[:email], username: params[:username], password: params[:password])
+  @user = User.create(fname: params[:fname], lname: params[:lname], email: params[:email], username: params[:username], password: params[:password])
+  
     session[:user_id] = @user.id
 
     redirect '/create_post'
@@ -77,12 +88,13 @@ post '/signup' do
     redirect '/signup'
   end
   #this block grabs their newly created user ID, sets it as the session, and then reroutes them to the complete profile page
-	@user = User.where(username: params[:username]).first
+  @user = User.where(username: params[:username]).first
   # session[:user_id] = @user.id
 end
 
 post '/account_details' do
   @user = current_user
+
   if params[:fname] != "" || params[:lname] != "" || params[:username] != ""
     @user.update(fname: params[:fname], lname: params[:lname], username: params[:username])
 
@@ -90,4 +102,11 @@ post '/account_details' do
   else
     flash[:alert] = "There was a problem updating your information."
   end
+end
+
+post '/signout' do
+    session.clear
+    flash[:notice] = "You have been signed out"
+
+    redirect '/'
 end

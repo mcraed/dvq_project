@@ -4,15 +4,15 @@
 <form method="post" action="/account_details">
 
 	<label for='fname'>First Name:</label>
-	<input type='text' name='up-fname' value=<%= @user.fname %> >
+	<input type='text' name='fname' value=<%= @user.fname %> >
 	<label for='lname'>Last Name:</label>
-	<input type="text" name="up_lname" value=<%= @user.lname %> >
+	<input type="text" name="lname" value=<%= @user.lname %> >
 	<label for='email'>email: <%= @user.email %></label>
-	<input type='button' name='up_email' value='Update Email'>
+	<input type='button' name='email' value='Update Email'>
 	<label for='username'>Username:</label>
-	<input type='text' name='up_username' value=<%= @user.username %> >
+	<input type='text' name='username' value=<%= @user.username %> >
 	<label for='password'>password:</label>
-	<input type='button' name='up_pass' value='Change Password'>
+	<input type='button' name='pass' value='Change Password'>
 
 	<input type='submit' value='Submit Changes'>
 </form>

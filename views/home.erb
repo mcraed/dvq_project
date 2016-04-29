@@ -1,47 +1,62 @@
 
 <!-- add edit account/ delete account form -->
+<link rel="stylesheet" type="text/css" href="public\style.css">
 
-
-
-<div id='sign-in'>
-
-	<form method="POST" action="/signin">
-
-	  <label for="username">Username</label>
-	  <input type="text" name="username">
-
-	  <label for="password">Password</label>
-	  <input type="password" name="password">
-
-	  <input type="submit">
-	</form>
-
+<div class="wrapper">
+	<div id='sign-in'>
+		<!-- <center><button class="button font">
+			Log in -->
+		<div class="opbackground">
+			<div class="box">
+				<form method="POST" action="/signin">
+		  		<label for="username">Username</label>
+		  		<input type="text" name="username">
+		  		<label for="password">Password</label>
+		  		<input type="password" name="password">
+		  		<input type="submit">
+				</form>
+		<!-- </button> -->
+			</div>
+		</div>
+	</div>
 </div>
 
+
+<!-- <center><button class="button font">
+			Log in
+		</button>
+ -->
 <div id='sign-up'>
-
-	<form method="POST" action="/signup">  
-
-		<label for="fname">First Name</label>
-		<input type="text" name="fname">
-
-		<label for="lname">Last Name</label>   
-		<input type="text" name="lname"> 
-
-		<label for="email">Email</label>
-		<input type="email" name="email">
-
-		<label for="username">Username</label>
-		<input type="text" name="username">
-
-		<label for="password">Password</label>   
-		<input type="text" name="password"></input>		   
-		
-		<input type="submit"> 	
-	</form>
-
+<!-- <center><button class="button font">
+		Sign up  -->
+	<div class="wrapper">
+		<div class="opbackground2">
+			<div class="box">
+					<!-- <a class="boxclose" id="boxclose"></a> -->
+				<form method="POST" action="/signup">  
+				<label for="fname">First Name</label>
+				<input type="text" name="fname">
+				<label for="lname">Last Name</label>   
+				<input type="text" name="lname"> 
+				<label for="email">Email</label>
+				<input type="email" name="email">
+				<label for="username">Username</label>
+				<input type="text" name="username">
+				<label for="password">Password</label>   
+				<input type="text" name="password"></input>		   
+				<input type="submit"> 	
+			</form>
+		</div>
+	</div>
 </div>
+</div>
+<center><button class="button font">
+			Log in
+		</button>
 
+<center><button class="button2 font">
+		Sign up 
+		</button>
 <!-- ============================================
 
 <div id="delete-post">

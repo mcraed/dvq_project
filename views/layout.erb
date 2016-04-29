@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Share+Tech+Mono' rel='stylesheet' type= 'text/css'>
 	<title>DVQ</title>
-	<script src="/js/script.js"></script>
-	<link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
-</head>
+	<script src="js/script.js"></script>
+</head
+
 <body>
-
-
+  <div class="color">
+    <div class="font ">
+        <nav>
+        <ul >
+        <li><a href="">newsfeed</a></li>
+        <li><a href="">followers</a></li>
+        <li><a href="">create post</a></li>
+        <li><a href="">sign up</a> </li>
+        <li><a href="">account details</a> </li>
+        </ul>
+        </nav>
+        </div>
+  </div>
+<!-- <div class="box"> -->
+<!-- <h2> micro blog</h2> -->
+  </div>
 <% if flash[:notice] %>
     <div class="flash notice">
       <%=flash[:notice] %>
@@ -20,7 +36,7 @@
     </div>
   <% end %>
 
-  <%= yield %>
+  <%= yield %> 
 
-</body>
+</body> 
 </html>

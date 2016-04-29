@@ -19,47 +19,59 @@ end
 get '/' do
 	erb :home
 end
-
+  # trying to print out the newsfeed 
 get '/feed' do
+  @posts=Post.last(10)
 	erb :feed
 end
 
+# # # what im doing 
 get '/create_post' do
-  @post = 
-
+# directs to creating post form 
 	erb :create_post
 end
+
+
+# post '/create_post' do
+# # # asking them to save a text and a title 
+# post=Post.create(params[:post])
+# # string method to print out post 
+# redirect '/posts/' + post.id.to_s
+# # # redirects to page of post should possibly be redirected to newsfeed
+# end 
+# # this should be feed instead 
+
+post '/create_post' do
+  # @user = User.find(session[:user_id])
+  puts @user.inspect
+  if params[:newpost] != " "
+    @post = Post.new(user_id: session[:user_id], body: params[:newpost])
+    redirect '/feed'
+  else
+    redirect '/create_post'
+  end
+end
+
+
 
 get '/account_details' do
   @user = User.find(session[:user_id])
   erb :account_details
 end
 
-post '/create_post' do
-  # @user = User.find(session[:user_id])
-  puts @user.inspect
-
-	if params[:newpost] != " "
-		@post = Post.new(user_id: session[:user_id], body: params[:newpost])
-
-    redirect '/feed'
-	else
-		redirect '/create_post'
-	end
-end
+get '/feed'  do 
+  last[10]
+erb :feed 
+end 
 
 post '/signin' do
-
   @user = User.where(username: params[:username]).first
-
-  if @user.password == params[:password]
+  if @user && @user.password == params[:password]
     session[:user_id] = @user.id
     flash[:notice] = "You've been signed in successfully."
-  
   	redirect "/feed"
   else
     flash[:alert] = "There was a problem signing you in."
-
     redirect "/"
   end
 end

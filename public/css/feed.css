@@ -1,0 +1,12 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#content-area{
+	width: 400px;
+	height: 150px;
+	margin: 15vh auto;
+	text-align: center;
+	background: #ffffff;
+}

@@ -36,6 +36,19 @@
   top: 0; left: 0; bottom: 0; right: 0;
 }
 
+.box2 {
+    background-color: blue;
+    width: 600px;
+    height:160px;
+    padding: 25px;
+    border: 5px blue;
+    text-align:center;
+    top-margin:150px ;
+    position:absolute;
+    margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
 
 .font{ 
  font-family: 'Share Tech Mono' ;

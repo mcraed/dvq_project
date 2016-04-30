@@ -19,9 +19,10 @@ end
 get '/' do
 	erb :home
 end
-  # trying to print out the newsfeed 
-get '/feed' do
 
+#Trying to print out the news feed
+  
+get '/feed' do
   @user = current_user
   @posts=Post.last(10)
 	erb :feed
@@ -29,17 +30,21 @@ end
 
 
 get '/create_post' do
-# directs to creating post form 
+  # directs to creating post form 
 	erb :create_post
 end
 
 get '/feed'  do 
   last[10]
-erb :feed 
+  erb :feed 
 end 
-  # donvan said put equal signs 
+
 get '/account_details' do
   @user = current_user
+  if params[:fname] == nil || params[:lname] == nil || params[:username] == nil
+  flash[:alert] = "Please sign in"
+  redirect '/'
+  end
   erb :account_details
 end
 
@@ -53,7 +58,7 @@ end
 
 post '/create_post' do
   @user = current_user
-  puts current_user.id
+ 
   if params[:newpost] != " "
     @post = Post.create(user_id: @user.id, body: params[:newpost])
 
@@ -63,7 +68,7 @@ post '/create_post' do
   end
 end
 
-post '/signin' do
+post '/sign_in' do
   @user = User.where(username: params[:username]).first
 
   if @user && @user.password == params[:password]
@@ -80,7 +85,7 @@ post '/signup' do
   #check for basic empty fields
   if params[:fname] != "" && params[:lname] != "" && params[:email] != "" && params[:username] != "" && params[:password] != "" 
     #create the new user and insert into database
-  @user = User.create(fname: params[:fname], lname: params[:lname], email: params[:email], username: params[:username], password: params[:password])
+    @user = User.create(fname: params[:fname], lname: params[:lname], email: params[:email], username: params[:username], password: params[:password])
   
     session[:user_id] = @user.id
 
@@ -96,7 +101,6 @@ end
 
 post '/account_details' do
   @user = current_user
-
   if params[:fname] != "" || params[:lname] != "" || params[:username] != ""
     @user.update(fname: params[:fname], lname: params[:lname], username: params[:username])
 
@@ -107,8 +111,7 @@ post '/account_details' do
 end
 
 post '/signout' do
-    session.clear
-    flash[:notice] = "You have been signed out"
-
-    redirect '/'
+  session.clear
+  flash[:notice] = "You have been signed out"
+  redirect '/'
 end

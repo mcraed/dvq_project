@@ -1,20 +1,21 @@
-<h1>My account details</h1>
+<div class="box2">
+	<h1>My account details</h1>
 
+	<form method="post" action="/account_details">
 
-<form method="post" action="/account_details">
+		<label for='fname'>First Name:</label>
+		<input type='text' name='fname' value=<%= @user.fname %> >
+		<label for='lname'>Last Name:</label>
+		<input type="text" name="lname" value=<%= @user.lname %> >
+		<label for='email'>email: <%= @user.email %></label>
+		<input type='button' name='email' value='Update Email'>
+		<label for='username'>Username:</label>
+		<input type='text' name='username' value=<%= @user.username %> >
+		<label for='password'>password:</label>
+		<input type='button' name='pass' value='Change Password'>
 
-	<label for='fname'>First Name:</label>
-	<input type='text' name='fname' value=<%= @user.fname %> >
-	<label for='lname'>Last Name:</label>
-	<input type="text" name="lname" value=<%= @user.lname %> >
-	<label for='email'>email: <%= @user.email %></label>
-	<input type='button' name='email' value='Update Email'>
-	<label for='username'>Username:</label>
-	<input type='text' name='username' value=<%= @user.username %> >
-	<label for='password'>password:</label>
-	<input type='button' name='pass' value='Change Password'>
+		<input type='submit' value='Submit Changes'>
+	</form>
 
-	<input type='submit' value='Submit Changes'>
-</form>
-
-<a href='/delete_acct'>Delete Account</a>
+	<a href='/delete_acct'>Delete Account</a>
+</div>

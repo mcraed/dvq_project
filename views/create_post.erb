@@ -2,11 +2,12 @@
 <div class="box">
 
 	<div id='create_post'>
+	<p><%= @user.fname %>, whats on your mind?</p>
 
 		<form method="POST" action="/create_post">
-			<label for="newpost">New Post</label>
+			<label for="post">New Post</label>
 			<!-- 	<input type="text" name="[post]title"> -->
-			<textarea name= "body"></textarea>
+			<input type="text" name= "body"></input>
 			<!-- who created the post/ hidden text will tell  -->
 			<!-- <input type= "hidden" value=<#%current_user.id%> name="[post]user_id"> -->
 			<input type="submit">

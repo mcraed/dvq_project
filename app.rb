@@ -6,8 +6,10 @@ require 'bundler/setup'
 require 'rack-flash'
 
 enable :sessions
+
 use Rack::Flash, :sweep => true
 configure(:development){ set :database, 'sqlite3:ormpractice.sqlite3' }
+
 set :sessions, true
 
 def current_user
@@ -24,20 +26,15 @@ end
   
 get '/feed' do
   @user = current_user
-  @posts=Post.last(10)
+  @post = Post.last(10) 
 	erb :feed
 end
 
-
 get '/create_post' do
+  @user = current_user
   # directs to creating post form 
 	erb :create_post
 end
-
-get '/feed'  do 
-  last[10]
-  erb :feed 
-end 
 
 get '/account_details' do
   @user = current_user
@@ -59,9 +56,8 @@ end
 post '/create_post' do
   @user = current_user
  
-  if params[:newpost] != " "
-    @post = Post.create(user_id: @user.id, body: params[:newpost])
-
+  if params[:body] != " "
+    @post = Post.create(user_id: @user.id, body: params[:body])
     redirect '/feed'
   else
     redirect '/create_post'

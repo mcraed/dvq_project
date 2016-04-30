@@ -56,11 +56,20 @@ end
 post '/create_post' do
   @user = current_user
  
-  if params[:body] != " "
-    @post = Post.create(user_id: @user.id, body: params[:body])
+  if @user
+    @post = Post.new(user_id: @user.id, username: @user.username, created: Time.now, body: params[:body])
+  else 
+    redirect '/'
+    flash[:alert] = "Please sign in."
+  end
+
+  if @post.body.length < 151 && params[:body] != " "
+    @post.save
     redirect '/feed'
+    flash[:notice] = "Great! Your post was created! Check it out in the feed."
   else
-    redirect '/create_post'
+    redirect '/create_post' 
+    flash[:alert] = "failed, post is empty or more than 150 chracters."
   end
 end
 

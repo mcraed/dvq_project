@@ -1,12 +1,17 @@
+<div id="greeting">
+	<h2>Hello, <%= @user.fname %>! Check out posts from the DVQ community in the feed below.</h2>
+</div>
 
-	<div id="content-area">
 
-	<h1>Feed: See a page with 10 most recent posts</h1>
-		<ul class="post">
-	<% @post.each do |p| %>
-			<li><%= p.username %></li>
-			<li><%= p.created %></li>
-			<li><%= p.body %></li>
-		</ul>
-		<% end %>
-	</div>
+<div id="profile-content-area">
+
+<h1>Feed: See a page with 10 most recent posts</h1>
+<% @post.each do |p| %>
+	<ul class="post">
+		<li class="p-username"><h4><%= p.username %></h4></li>
+		<li class="p-created"><h6><%= p.created %></h6></li>
+		<li class="p-body"><%= p.body %></li>
+	</ul>
+	<% end %>
+</div>
+

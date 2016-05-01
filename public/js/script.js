@@ -1,19 +1,19 @@
 $(document).ready(function(){
-console.log ("hey ")
 
-    $(".button").click(function(){
-        $(".opbackground").show();
-    });
-    
-$(" .opbackground").on('click',function(){
-    $("#boxclose").hide();
-     });
+	$('.opbackground').hide();
+	$('#sign-in').hide();
+	$('#sign-up').hide();
 
-$(".button2").click(function(){
-        $(".opbackground2").show();
-    });
-    
-$(".opbackground2"). on('click',function(){
-    $("#boxclose").hide();
-     });
+
+	$("#login").click(function(){
+	  $("#sign-in").show();
+	});
+	    
+	$("#signup-button").on('click',function(){
+		$("#sign-up").show();
+	});
+
+	$(".esc").click(function(){
+	  $(".opbackground").hide();
+	});
 });

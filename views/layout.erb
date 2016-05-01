@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
-  <link rel="stylesheet" type="text/css" href="css/feed.css">
+  <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
+  <link rel="stylesheet" type="text/css" href="/css/feed.css">
+  <link rel="stylesheet" type="text/css" href="/css/home.css">
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   <link href='https://fonts.googleapis.com/css?family=Share+Tech+Mono' rel='stylesheet' type= 'text/css'>
 	<title>DVQ</title>
@@ -16,27 +17,27 @@
     <div class="font ">
         <nav>
           <ul >
-            <li><a href="/feed">newsfeed</a></li>
-            <li><a href="/create_post">followers</a></li>
-            <li><a href="/create_post">create post</a></li>
-            <li><a href="/">sign up</a> </li>
-            <li><a href="account_details">account details</a> </li>
+            <li><a href="/feed">Recent Posts</a></li>
+            <li><a href="/create_post">Create Post</a></li>
+            <li><a href="/account_details">Account Details</a> </li>
+            <li><a href="/signout">Sign Out</a></li>
             </ul>
         </nav>
       </div>
   </div>
+<!-- <li><a href="/create_post">followers</a></li> -->
 <!-- <div class="box">
 <h2> micro blog</h2>
   </div> -->
 <% if flash[:notice] %>
-    <div class="flash notice">
+    <div class="flash-notice">
       <%=flash[:notice] %>
     </div>
-<% end %>
-<% if flash[:alert] %>
-    <div class="flash alert">
+<% elsif flash[:alert] %>
+    <div class="flash-alert">
       <%=flash[:alert] %>
     </div>
+<% else %>
 <% end %>
 
   <%= yield %> 

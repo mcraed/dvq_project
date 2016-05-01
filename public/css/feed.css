@@ -3,10 +3,33 @@
 	padding: 0;
 }
 
-#content-area{
-	width: 400px;
+#profile-content-area{
+	width: 80%;
 	min-height: 500px;
-	margin: 15vh auto;
-	text-align: center;
+	margin: 8vh auto;
 	background: #ffffff;
+}
+
+.post{
+	width: 80%;
+	margin: 3vh auto;
+	list-style: none;
+	border-bottom: 1px solid black;
+	padding-bottom: 5px;
+}
+
+.p-username{
+	margin-bottom: 1px;
+}
+
+.p-created{
+	margin-bottom: 6px;
+}
+
+#greeting{
+	width: 100%;
+	height: 30px;
+	color: white;
+	text-align: center;
+	margin-top: 40px;
 }

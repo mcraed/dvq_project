@@ -1,26 +1,20 @@
-
-.opbackground{
-    display:none;
-    position:fixed;
-    left:0;
-    top:0;
-    z-index: 1;
-    background-color:rgba(0,0,0,0.4);
-    width:100%;
-    height:100%;
-}
-.opbackground2{
-    display:none;
-    position:fixed;
-    left:0;
-    top:0;
-    z-index: 1;
-    background-color:rgba(0,0,0,0.4);
-    width:100%;
-    height:100%;
+body{
+    background-image: url('http://i.stack.imgur.com/kx8MT.gif');
+    background-size: cover;
 }
 
+.flash-notice{
+    width: 100%;
+    height: 18px;
+    color: white;
+}
 
+.flash-alert{
+    width: 100%;
+    height: 18px;
+    background: #ffffff;
+    color: red;
+}
 
 .box {
     background-color: blue;
@@ -56,12 +50,8 @@
 margin :0 auto ;
 }
 
-body{
-    background-image: url('http://i.stack.imgur.com/kx8MT.gif');
-    background-size: cover;
-}
 
-ul{
+.font ul{
 list-style-type: none;
 margin:0;
 padding:0;
@@ -69,11 +59,11 @@ overflow : hidden;
 background-color: blue;
 }
 
-li{
+.font li{
 	float:left;
 }
 
-li a {
+.font li a {
 display:block;
 color:orange;
 text-align: center;
@@ -82,7 +72,7 @@ text-decoration: 0 ;
 }
 
 
-.button2 {
+/*.button2 {
     margin-top: 300px ;
     background-color:blue;
     width:200px;
@@ -106,7 +96,7 @@ text-decoration: 0 ;
     height:40px;
     font-size: 16px;
     top-margin:250px ;
-}
+}*/
 
 a.boxclose{
     float:right;

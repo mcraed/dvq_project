@@ -26,7 +26,9 @@ end
   
 get '/feed' do
   @user = current_user
-  @post = Post.last(10) 
+  @recent = Post.last(10)
+  @post = @recent.reverse 
+
   
   if @user
     erb :feed
@@ -44,15 +46,15 @@ get '/delete_acct' do
   redirect '/'
 end
 
-get '/create_post' do
-  @user = current_user
-  if @user
-   erb :create_post
-  else
-    flash[:alert] = "Please sign in."
-    erb :home
-  end
-end
+# get '/create_post' do
+#   @user = current_user
+#   if @user
+#    erb :create_post
+#   else
+#     flash[:alert] = "Please sign in."
+#     erb :home
+#   end
+# end
 
 post '/create_post' do
   @user = current_user
@@ -68,8 +70,7 @@ post '/create_post' do
   if @post.body.length < 151 && params[:body] != " "
     @post.save
     redirect '/feed'
-  else
-    redirect '/create_post' 
+  else 
     flash[:alert] = "Failed; post is empty or more than 150 chracters."
   end
 end
@@ -104,11 +105,11 @@ post '/signup' do
   # session[:user_id] = @user.id
 end
 
-get '/account_details' do
+get '/#' do
   @user = current_user
 
   if @user
-    erb :account_details
+
   else
     flash[:alert] = "Please sign in."
     erb :home
@@ -122,6 +123,7 @@ post '/account_details' do
     @user.update(fname: params[:fname], lname: params[:lname], username: params[:username])
 
     flash[:notice] = "Your information was successfully updated!"
+    redirect '/feed'
   else
     flash[:alert] = "There was a problem updating your information."
   end

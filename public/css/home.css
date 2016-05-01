@@ -41,7 +41,7 @@
 .home-form{
 	width: 300px;
 	min-height: 130px;
-	margin: 30vh auto;
+	margin: 31vh auto;
 	background: grey;
 	padding: 20px;
 }
@@ -53,11 +53,11 @@
 
 #submit{
 	width: 100px;
-	margin-top: 20px;
+	float: right;
+	margin: 20px 20px 20px 0;
 }
 
 .esc{
 	width: 100px;
-	float: right;
-	margin: 20px 20px 20px 0;
+	margin: 20px;
 }

@@ -18,17 +18,62 @@
         <nav>
           <ul >
             <li><a href="/feed">Recent Posts</a></li>
-            <li><a href="/create_post">Create Post</a></li>
-            <li><a href="/account_details">Account Details</a> </li>
+            <li><a id="create-post"href="#">Create Post</a></li>
+            <li><a id="acct-det" href="#">Account Details</a> </li>
             <li><a href="/signout">Sign Out</a></li>
             </ul>
         </nav>
       </div>
   </div>
-<!-- <li><a href="/create_post">followers</a></li> -->
-<!-- <div class="box">
-<h2> micro blog</h2>
-  </div> -->
+
+<div id="acct-details">
+  <% if @user %>
+    <div id="acct-form">
+      <h1>My account details</h1>
+
+      <form method="post" action="/account_details">
+
+        <label for='fname'>First Name:</label>
+        <input type='text' name='fname' value=<%= @user.fname %> >
+        <label for='lname'>Last Name:</label>
+        <input type="text" name="lname" value=<%= @user.lname %> >
+        <label for='email'>email: <%= @user.email %></label>
+        <input type='button' name='email' value='Update Email'>
+        <label for='username'>Username:</label>
+        <input type='text' name='username' value=<%= @user.username %> >
+        <label for='password'>password:</label>
+        <input type='button' name='pass' value='Change Password'>
+
+        <input type='submit' value='Submit Changes'>
+      </form>
+
+      <button class="esc">Close</button>
+
+      <br><br><br>
+
+      <p><a href='/delete_acct'>Delete Account</a><h5>WARNING: Clicking this link WILL delete your account! Once your account is deleted, it cannot be recovered!</h5></p>
+    </div>
+  <% end %>
+</div>
+
+<div id="create_post">
+  <% if @user %>
+    <div id="create-post-form">
+      <p><%= @user.fname %>, whats on your mind?</p>
+      <form method="POST" action="/create_post">
+      <label for="post">New Post</label>
+      <!--  <input type="text" name="[post]title"> -->
+      <textarea type="text" name= "body"></textarea>
+      <!-- who created the post/ hidden text will tell  -->
+      <!-- <input type= "hidden" value=<#%current_user.id%> name="[post]user_id"> -->
+      <input type="submit">
+      </form>
+
+      <button class="esc">Close</button>
+    </div>
+  <% end %>
+</div>
+
 <% if flash[:notice] %>
     <div class="flash-notice">
       <%=flash[:notice] %>

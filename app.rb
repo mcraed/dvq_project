@@ -27,9 +27,8 @@ end
 get '/feed' do
   @user = current_user
   @recent = Post.last(10)
-  @post = @recent.reverse 
+  @post = @recent.reverse
 
-  
   if @user
     erb :feed
   else

@@ -1,12 +1,10 @@
 <div id="greeting">
-	<h2>Hello, <%= @user.fname %>! Check out posts from the DVQ community in the feed below.</h2>
+	<h2>Hi, <%= @user.fname %>! Check out the lastest posts in the DVQ feed below.</h2>
 </div>
 
 
 <div id="profile-content-area">
-
-<h1>Feed: See a page with 10 most recent posts</h1>
-<% @post.each do |p| %>
+	<% @post.each do |p| %>
 	<ul class="post">
 		<li class="p-username"><h4><%= p.username %></h4></li>
 		<li class="p-created"><h6><%= p.created %></h6></li>

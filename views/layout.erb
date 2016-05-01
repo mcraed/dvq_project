@@ -11,13 +11,12 @@
 	<script src="js/script.js"></script>
 </head>
 
-
 <body>
   <div class="color">
     <div class="font ">
         <nav>
           <ul >
-            <li><a href="/feed">Recent Posts</a></li>
+            <li><a href="/feed">DVQ Feed</a></li>
             <li><a id="create-post"href="#">Create Post</a></li>
             <li><a id="acct-det" href="#">Account Details</a> </li>
             <li><a href="/signout">Sign Out</a></li>
@@ -59,9 +58,8 @@
 <div id="create_post">
   <% if @user %>
     <div id="create-post-form">
-      <p><%= @user.fname %>, whats on your mind?</p>
       <form method="POST" action="/create_post">
-      <label for="post">New Post</label>
+      <label for="post"><%= @user.fname %>, whats on your mind?</label>
       <!--  <input type="text" name="[post]title"> -->
       <textarea type="text" name= "body"></textarea>
       <!-- who created the post/ hidden text will tell  -->
@@ -86,6 +84,5 @@
 <% end %>
 
   <%= yield %> 
-
 </body> 
 </html>

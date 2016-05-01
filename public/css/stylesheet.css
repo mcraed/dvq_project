@@ -2,10 +2,11 @@
     margin: 0;
     padding: 0;
 }
+
 body{
+    background: #000;
     background-image: url('http://i.stack.imgur.com/kx8MT.gif');
     background-size: cover;
-    position: relative;
 }
 
 .flash-notice{
@@ -43,20 +44,6 @@ body{
     background: grey;
     color: white;
 }
-
-/*.box2 {
-    background-color: blue;
-    width: 600px;
-    height:160px;
-    padding: 25px;
-    border: 5px blue;
-    text-align:center;
-    top-margin:150px ;
-    position:absolute;
-    margin: auto;
-  position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
-}*/
 
 .font{ 
  font-family: 'Share Tech Mono' ;
@@ -105,6 +92,13 @@ text-decoration: 0 ;
     background: #0000FF;
     color: #fff;
     border: 2px solid #000;
+}   
+
+#create-post-form textarea{
+    width: 100%;
+    clear: both;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 #acct-details{

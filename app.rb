@@ -94,7 +94,7 @@ post '/signup' do
   
     session[:user_id] = @user.id
 
-    redirect '/create_post'
+    redirect '/feed'
   else
     #eventually display error message here if fields are blank
     redirect '/'

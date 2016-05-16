@@ -8,7 +8,7 @@
   <link href='https://fonts.googleapis.com/css?family=Share+Tech+Mono' rel='stylesheet' type= 'text/css'>
 	<title>DVQ</title>
 
-	<script src="js/script.js"></script>
+	<script src="/js/script.js"></script>
 </head>
 
 <body>
@@ -36,12 +36,12 @@
         <input type='text' name='fname' value=<%= @user.fname %> >
         <label for='lname'>Last Name:</label>
         <input type="text" name="lname" value=<%= @user.lname %> >
-        <label for='email'>email: <%= @user.email %></label>
-        <input type='button' name='email' value='Update Email'>
+        <label for='email'>email:</label>
+        <input type='text' name='email' value=<%= @user.email %> >
         <label for='username'>Username:</label>
         <input type='text' name='username' value=<%= @user.username %> >
         <label for='password'>password:</label>
-        <input type='button' name='pass' value='Change Password'>
+        <input type='text' name='password' value="12345">
 
         <input type='submit' value='Submit Changes'>
       </form>

@@ -9,6 +9,8 @@
 		<li class="p-username"><h4><%= p.username %></h4></li>
 		<li class="p-created"><h6><%= p.created %></h6></li>
 		<li class="p-body"><%= p.body %></li>
+		<a href="/edit_post/<%= p.id %>
+		" class="edit-post">Edit</a> 
 	</ul>
 	<% end %>
 </div>

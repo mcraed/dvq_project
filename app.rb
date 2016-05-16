@@ -45,15 +45,37 @@ get '/delete_acct' do
   redirect '/'
 end
 
-# get '/create_post' do
-#   @user = current_user
-#   if @user
-#    erb :create_post
-#   else
-#     flash[:alert] = "Please sign in."
-#     erb :home
-#   end
-# end
+get '/edit_post/:id' do
+  @user = current_user
+  @post = Post.find(params[:id])
+  erb :edit_post
+end
+
+post 'edit_post' do
+  @user = current_user
+  @post = Post.find(params[:id])
+
+  if params[:body] != ""
+    @post.update(body: params[:body])
+  else
+    flash[:alert] = "You can't just leave your post empty!!"
+  end
+end
+
+post '/delete_post' do
+  @user = current_user
+  @post = Post.find(params[:id])
+
+  if @post
+    @post.delete
+    flash[:notice] = "Your Post was deleted"
+    erb :feed
+  else
+    flash[:alert] = "There was an error"
+    erb :feed
+  end
+end
+
 
 post '/create_post' do
   @user = current_user
@@ -118,8 +140,8 @@ end
 post '/account_details' do
   @user = current_user
 
-  if params[:fname] != "" || params[:lname] != "" || params[:username] != ""
-    @user.update(fname: params[:fname], lname: params[:lname], username: params[:username])
+  if params[:fname] != "" && params[:lname] != "" && params[:username] != "" && params[:email] != "" && params[:password] != ""
+    @user.update(fname: params[:fname], lname: params[:lname], username: params[:username], email: params[:email], password: params[:password])
 
     flash[:notice] = "Your information was successfully updated!"
     redirect '/feed'

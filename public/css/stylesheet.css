@@ -140,5 +140,21 @@ a.boxclose{
 
 .boxclose:before {
     content: "×";
-
 }
+
+#edit-post-header{
+    color: #fff;
+    margin: 30px 0px 0px 400px;
+}
+
+#edit-post-form{
+    width: 46%;
+    height: 150px;
+    margin: 28vh auto;
+    color: #fff;
+}
+
+#submit-edit{
+    display: block;
+}
+

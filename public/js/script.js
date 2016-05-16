@@ -3,8 +3,8 @@ $(document).ready(function(){
 	$('.opbackground').hide();
 	$('#sign-in').hide();
 	$('#sign-up').hide();
-	$('#acct-details').hide();
 	$('#create_post').hide();
+	$('#acct-details').hide();
 
 	$("#login").click(function(){
 	  $("#sign-in").show();
@@ -19,6 +19,7 @@ $(document).ready(function(){
 	var post_open = false
 	var acct_clicked = false
 	var acct_open = false
+
 	$("#create-post").click(function(){
 		if (post_clicked == false){
 				if (acct_open == false){
@@ -58,7 +59,6 @@ $(document).ready(function(){
 					post_open = false
 				}
 		}
-
 		else{
 			$("#acct-details").slideUp(1000);
 			acct_clicked = false
@@ -67,12 +67,17 @@ $(document).ready(function(){
 	});
 
 	$(".esc").click(function(){
-	  $(".opbackground").hide();
 	  $("#acct-details").slideUp(1000);
 	  $("#create_post").slideUp(1000);
 	  post_clicked = false
 	 	post_open = false
 	 	acct_clicked = false
 	 	acct_open = false
+	});
+
+	$('.edit-post').on('click', function(){
+		$('#create-post').hide();
+		$('#acct-details').hide();
+		console.log('working');
 	});
 });

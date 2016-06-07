@@ -47,16 +47,17 @@ end
 
 get '/edit_post/:id' do
   @user = current_user
-  @post = Post.find(params[:id])
+  @post = Post.where(params[:id]).last
   erb :edit_post
 end
 
-post 'edit_post' do
+post '/edit_post' do
   @user = current_user
-  @post = Post.find(params[:id])
+  @post = Post.where(params[:id]).last
 
   if params[:body] != ""
     @post.update(body: params[:body])
+    redirect '/feed'
   else
     flash[:alert] = "You can't just leave your post empty!!"
   end
@@ -64,15 +65,15 @@ end
 
 post '/delete_post' do
   @user = current_user
-  @post = Post.find(params[:id])
+  @post = Post.where(:id == params[:id]).last
 
   if @post
-    @post.delete
+    @post.destroy
     flash[:notice] = "Your Post was deleted"
-    erb :feed
+    redirect '/feed'
   else
     flash[:alert] = "There was an error"
-    erb :feed
+    redirect '/feed'
   end
 end
 

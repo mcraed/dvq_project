@@ -2,18 +2,20 @@
 
 	<h2 id="edit-post-header">Edit Post</h2>
 	<div id="edit-post-form">
-		<form method="post" action="edit_post">
+		<form method="post" action="/edit_post">
 
-			<%= @post.user%>
-			<label for="body">Post Body:</label>
-			<textarea type="text" name="body" value=<%= @post.body %>></textarea>
+			<%= @post.username + ","%>
+			<label for="body">what should I change?</label>
+			<textarea type="text" name="body" value=<%= @post.body %>>
+				
+			</textarea>
 			<br />
 			<br />
 			<input type="submit" class="submit-edit">
 		</form>
 
 		<form method='post' action='/delete_post'>
-			<input type="hidden" value=<%= @post.id %>>
+
 			<input type='submit' name='delete_post' value='Delete Post'>
 		</form>
 	</div>

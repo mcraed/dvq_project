@@ -60,6 +60,7 @@ DEPENDENCIES
   sinatra-activerecord
   sinatra-reloader
   sqlite3
+  tilt
 
 BUNDLED WITH
    1.11.2
